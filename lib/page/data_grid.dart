@@ -190,8 +190,8 @@ class _DataGridState extends State<DataGrid> {
             ],
           ),
           actions: [
-            FlatButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.pop(context);
                 setState(() {
                 });
