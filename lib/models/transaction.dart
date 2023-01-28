@@ -1,29 +1,37 @@
-//this model is used to store the data of transactions that we get from the api
-class Transaction {
-  final int? id;
-  final String? name;
-  final DateTime? date;
-  final String? category;
-  final double? amount;
-  final DateTime? createdAt;
+// //this model is used to store the data of transactions that we get from the api
+import 'column_data.dart';
 
-  Transaction({
-    this.id,
-    this.name,
-    this.date,
-    this.category,
-    this.amount,
-    this.createdAt,
-  });
+class Transaction {
+  final Map<String, dynamic> jsonData;
+
+  Transaction(this.jsonData);
+
+  dynamic getValue(
+    List<ColumnData>? columns,
+    String configProp,
+    List<String>? jsonPaths,
+  ) {
+    for (var i = 0; i < columns!.length; i++) {
+      if (configProp == columns[i].key) {
+        return jsonData[columns[i].key];
+      }
+      if (configProp == columns[i].label) {
+        return jsonData[columns[i].label];
+      }
+
+      if (configProp == columns[i].type) {
+        return jsonData[columns[i].type];
+      }
+    }
+  }
+
+  dynamic getValueLargeScreen(ColumnData column) {
+    dynamic value = jsonData[column.key];
+    print(value);
+    return value;
+  }
 
   factory Transaction.fromJson(Map<String, dynamic> json) {
-    return Transaction(
-      id: json['id'],
-      name: json['name'],
-      date: DateTime.parse(json['date']),
-      category: json['category'],
-      amount: json['amount'].toDouble(),
-      createdAt: DateTime.parse(json['created_at']),
-    );
+    return Transaction(json);
   }
 }

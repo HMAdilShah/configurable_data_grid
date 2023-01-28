@@ -21,8 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         body: DataGrid(
           // apiEndpoint: 'https://us-central1-fir-apps-services.cloudfunctions.net/transactions',
-          apiEndpoint: 'https://mocki.io/v1/43ac82f0-dd21-4390-b910-30679aeaa48f',
+          apiEndpoint: 'https://mocki.io/v1/a8993146-37de-4b81-8826-369da2b5cbe3',
           columns: [
+            //required columns as mentioned in instructions
             ColumnData(label: 'Name', key: 'name', type: 'string'),
             ColumnData(label: 'Date', key: 'date', type: 'date'),
             ColumnData(label: 'Category', key: 'category', type: 'string'),
@@ -36,10 +37,12 @@ class MyApp extends StatelessWidget {
             'amount',
             'created_at',
           ],
-          titleColumn: 'name',
-          subtitleColumn: 'date',
+          titleColumn: '',
+          subtitleColumn: '',
         ),
       ),
     );
   }
+
+
 }

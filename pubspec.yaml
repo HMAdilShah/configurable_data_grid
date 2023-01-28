@@ -49,6 +49,9 @@ dev_dependencies:
   http: ^0.13.5
   intl: ^0.18.0
   get: ^4.6.5
+  toggle_switch: ^2.0.1
+#  json_annotation: ^3.1.0
+#  json_serializable: ^3.5.0
 
 
 # For information on the generic Dart part of this file, see the
